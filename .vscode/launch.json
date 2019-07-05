@@ -9,21 +9,21 @@
             "type": "go",
             "request": "launch",
             "mode": "debug",
-            "program": "${workspaceFolder}/feature/feature.go"
+            "program": "${workspaceFolder}/examples/feature/feature.go"
         },
         {
-            "name": "Launch file",
+            "name": "Launch server",
             "type": "go",
             "request": "launch",
             "mode": "debug",
-            "program": "${workspaceFolder}/go_basic/main/server.go"
+            "program": "${workspaceFolder}/examples/main/server.go"
         },
         {
-            "name": "Launch",
+            "name": "Launch restful",
             "type": "go",
             "request": "launch",
             "mode": "auto",
-            "program": "${workspaceFolder}/main/restful.go",
+            "program": "${workspaceFolder}/examples/restful.go",
             "env": {},
             "args": [],
             "port":6423
