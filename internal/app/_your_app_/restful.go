@@ -12,7 +12,7 @@ func index(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 	fmt.Fprint(w, "Welcome!\n")
 }
 
-func Hello(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
+func hello(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
 	fmt.Fprintf(w, "hello, %s!\n", ps.ByName("name"))
 }
 
@@ -35,12 +35,13 @@ func adduser(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
 	// uid := r.FormValue("uid")
 	uid := ps.ByName("uid")
 	fmt.Fprintf(w, "you are add user %s", uid)
+	// fmt.Fprintf(w, "you are add user %s", r)
 }
 
 func main() {
 	router := httprouter.New()
 	router.GET("/", index)
-	router.GET("/hello/:name", Hello)
+	router.GET("/hello/:name", hello)
 
 	router.GET("/user/:uid", getuser)
 	router.POST("/adduser/:uid", adduser)
