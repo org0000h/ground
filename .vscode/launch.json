@@ -5,6 +5,13 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "Launch feature",
+            "type": "go",
+            "request": "launch",
+            "mode": "debug",
+            "program": "${workspaceFolder}/feature/feature.go"
+        },
+        {
             "name": "Launch file",
             "type": "go",
             "request": "launch",
