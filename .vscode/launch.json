@@ -16,14 +16,14 @@
             "type": "go",
             "request": "launch",
             "mode": "debug",
-            "program": "${workspaceFolder}/examples/main/server.go"
+            "program": "${workspaceFolder}/examples/net_http/server.go"
         },
         {
             "name": "Launch restful",
             "type": "go",
             "request": "launch",
             "mode": "auto",
-            "program": "${workspaceFolder}/examples/restful.go",
+            "program": "${workspaceFolder}/internal/app/_your_app_/restful.go",
             "env": {},
             "args": [],
             "port":6423
