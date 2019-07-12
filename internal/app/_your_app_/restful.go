@@ -9,7 +9,9 @@ import (
 )
 
 func index(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
-	fmt.Fprint(w, "Welcome!\n")
+	if _, ok := fmt.Fprint(w, "Welcome!\n"); ok != nil {
+		// todo
+	}
 }
 
 func hello(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
