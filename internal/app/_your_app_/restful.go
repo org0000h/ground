@@ -13,28 +13,39 @@ func index(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 }
 
 func hello(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
-	fmt.Fprintf(w, "hello, %s!\n", ps.ByName("name"))
+	if _, ok := fmt.Fprintf(w, "hello, %s!\n", ps.ByName("name")); ok != nil {
+		// err handle
+	}
 }
 
-func getuser(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
+func getUser(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
 	uid := ps.ByName("uid")
-	fmt.Fprintf(w, "you are get user %s", uid)
+	if _, ok := fmt.Fprintf(w, "you are get user %s", uid); ok != nil {
+		// err handle
+	}
 }
 
-func modifyuser(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
+func modifyUser(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
 	uid := ps.ByName("uid")
-	fmt.Fprintf(w, "you are modify user %s", uid)
+	if _, ok := fmt.Fprintf(w, "you are modify user %s", uid); ok != nil {
+
+	}
 }
 
-func deleteuser(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
+func deleteUser(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
 	uid := ps.ByName("uid")
-	fmt.Fprintf(w, "you are delete user %s", uid)
+	if _, ok := fmt.Fprintf(w, "you are delete user %s", uid); ok != nil {
+		// err handle
+	}
+
 }
 
-func adduser(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
+func addUser(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
 	// uid := r.FormValue("uid")
 	uid := ps.ByName("uid")
-	fmt.Fprintf(w, "you are add user %s", uid)
+	if _, ok := fmt.Fprintf(w, "you are add user %s", uid); ok != nil {
+		// err handle
+	}
 	// fmt.Fprintf(w, "you are add user %s", r)
 }
 
@@ -43,10 +54,10 @@ func main() {
 	router.GET("/", index)
 	router.GET("/hello/:name", hello)
 
-	router.GET("/user/:uid", getuser)
-	router.POST("/adduser/:uid", adduser)
-	router.DELETE("/deluser/:uid", deleteuser)
-	router.PUT("/moduser/:uid", modifyuser)
+	router.GET("/user/:uid", getUser)
+	router.POST("/addUser/:uid", addUser)
+	router.DELETE("/deluser/:uid", deleteUser)
+	router.PUT("/moduser/:uid", modifyUser)
 
 	log.Fatal(http.ListenAndServe(":8080", router))
 }
