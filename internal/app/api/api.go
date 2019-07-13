@@ -1,11 +1,8 @@
-package main
+package api
 
 import (
 	"fmt"
-	"log"
 	"net/http"
-
-	"github.com/julienschmidt/httprouter"
 )
 
 func index(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
@@ -49,17 +46,4 @@ func addUser(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
 		// err handle
 	}
 	// fmt.Fprintf(w, "you are add user %s", r)
-}
-
-func main() {
-	router := httprouter.New()
-	router.GET("/", index)
-	router.GET("/hello/:name", hello)
-
-	router.GET("/user/:uid", getUser)
-	router.POST("/addUser/:uid", addUser)
-	router.DELETE("/deluser/:uid", deleteUser)
-	router.PUT("/moduser/:uid", modifyUser)
-
-	log.Fatal(http.ListenAndServe(":8080", router))
 }
